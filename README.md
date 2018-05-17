@@ -29,6 +29,8 @@ This is a rough example of Spark + Angular 6 website.
       1. `npm i -g npm-check-updates` (easily update angular dependencies)
       2. `ncu -u`
       3. `npm install`
+      #### notice: angular 6.0.2 require typescript@2.7.2, if you accidentally upgrade typescript to 2.8 or higher,
+      ####         please downgrade to 2.7.2 with command `npm i typescript@2.7.2`.
 
 6. Mark `src/main/{resources_name}` as `Resources Root` (IntelliJ IDEA -> Project Structure -> Modules)
 
