@@ -22,8 +22,9 @@ This is a rough example of Spark + Angular 6 website.
 
    prerequisite:
       1. Node.js
-      2. `npm i -g npm`
-      3. `npm i -g @angular/cli`
+      2. JDK 8
+      3. `npm i -g npm`
+      4. `npm i -g @angular/cli`
 
    options:
       1. `npm i -g npm-check-updates` (easily update angular dependencies)
