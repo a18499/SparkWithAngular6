@@ -20,8 +20,20 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile "com.sparkjava:spark-kotlin:1.0.0-alpha"
+    // https://mvnrepository.com/artifact/com.sparkjava/spark-core
+    compile group: 'com.sparkjava', name: 'spark-core', version: '2.7.1'
+
     compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+    // https://mvnrepository.com/artifact/org.pac4j/pac4j-core
+    compile group: 'org.pac4j', name: 'pac4j-core', version: '3.0.0'
+    // https://mvnrepository.com/artifact/org.pac4j/pac4j-jwt
+    compile group: 'org.pac4j', name: 'pac4j-jwt', version: '3.0.0'
+    compile group: 'org.pac4j', name: 'pac4j-config', version: '3.0.0'
+    // https://mvnrepository.com/artifact/org.pac4j/pac4j-http
+    compile group: 'org.pac4j', name: 'pac4j-http', version: '3.0.0'
+    // https://mvnrepository.com/artifact/org.pac4j/pac4j
+    compile group: 'org.pac4j', name: 'pac4j', version: '3.0.0', ext: 'pom'
+
 }
 
 compileKotlin {
