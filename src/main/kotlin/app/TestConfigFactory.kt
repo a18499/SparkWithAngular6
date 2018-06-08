@@ -9,14 +9,13 @@ import org.pac4j.jwt.credentials.authenticator.JwtAuthenticator
 import org.pac4j.core.client.direct.AnonymousClient
 import org.pac4j.core.client.Clients
 import org.pac4j.core.profile.CommonProfile
+import org.pac4j.sparkjava.DefaultHttpActionAdapter
+import spark.TemplateEngine
 
 
-class TestConfigFactory: ConfigFactory {
-    lateinit var Salt:String
-    fun init(salt:String):Boolean{
-        this.Salt = salt
-        return true
-    }
+class TestConfigFactory(salt: String) : ConfigFactory {
+     var Salt:String = salt
+
 
     override fun build(vararg parameters: Any?): Config {
         // REST authent with JWT for a token passed in the url as the token parameter
@@ -27,7 +26,7 @@ class TestConfigFactory: ConfigFactory {
 
         val config =Config(clients)
         config.addAuthorizer("admin", RequireAnyRoleAuthorizer<CommonProfile>("ROLE_ADMIN"))
-
+       // config.httpActionAdapter = DefaultHttpActionAdapter()
         return config
 
     }

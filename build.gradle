@@ -31,7 +31,7 @@ dependencies {
     compile group: 'org.pac4j', name: 'pac4j-config', version: '3.0.0'
     // https://mvnrepository.com/artifact/org.pac4j/pac4j-http
     compile group: 'org.pac4j', name: 'pac4j-http', version: '3.0.0'
-    compile group: 'org.pac4j', name: 'spark-pac4j', version: '1.0.3'
+    compile group: 'org.pac4j', name: 'spark-pac4j', version: '2.2.0'
 
 }
 
