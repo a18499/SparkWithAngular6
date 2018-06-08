@@ -2,10 +2,9 @@ package app
 
 
 
-import build
-import org.eclipse.jetty.util.log.JettyLogHandler.config
 
-import spark.Spark.staticFiles
+import org.pac4j.sparkjava.CallbackRoute
+import spark.Spark.*
 
 
 fun main(args: Array<String>) {
@@ -15,20 +14,14 @@ fun main(args: Array<String>) {
     val config = TestConfigFactory()
     config.init(JWT_SALT)
     config.build()
-    val callback = CallbackRoute(config, null, true)
+
+
     //callback.setRenewSession(false);
-    get("/callback", callback)
-    post("/callback", callback)
+    //before("/test",SecurityFilter())
+
+    get("/hello") { req, res -> "Hello World" }
 
 
-    before("/*") {
-        response.header("server", "Jetty")
-    }
-
-    get("/hello") {
-        type(contentType = "application/json")
-        "{\"message\":\"Hello World\"}"
-    }
 
 
 }
