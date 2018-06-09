@@ -11,6 +11,10 @@ import org.pac4j.core.client.Clients
 import org.pac4j.core.profile.CommonProfile
 import org.pac4j.sparkjava.DefaultHttpActionAdapter
 import spark.TemplateEngine
+import org.pac4j.http.credentials.authenticator.test.SimpleTestUsernamePasswordAuthenticator
+import org.pac4j.http.client.direct.DirectBasicAuthClient
+
+
 
 
 class TestConfigFactory(salt: String) : ConfigFactory {
@@ -22,11 +26,16 @@ class TestConfigFactory(salt: String) : ConfigFactory {
         val parameterClient = ParameterClient("token", JwtAuthenticator(SecretSignatureConfiguration(Salt)))
         parameterClient.setSupportGetRequest(true)
         parameterClient.setSupportPostRequest(false)
-        val clients = Clients("http://localhost:4567/callback", parameterClient, AnonymousClient())
+        val directBasicAuthClient = DirectBasicAuthClient(SimpleTestUsernamePasswordAuthenticator())
+        val clients = Clients("http://localhost:4567/callback", parameterClient,directBasicAuthClient, AnonymousClient())
 
         val config =Config(clients)
         config.addAuthorizer("admin", RequireAnyRoleAuthorizer<CommonProfile>("ROLE_ADMIN"))
        // config.httpActionAdapter = DefaultHttpActionAdapter()
+       // config.httpActionAdapter = DavidHttpActionAdapter()
+       // config.httpActionAdapter = DefaultHttpActionAdapter()
+
+        config.httpActionAdapter = DavidHttpActionAdapter()
         return config
 
     }
